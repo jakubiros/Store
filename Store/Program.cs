@@ -1,4 +1,7 @@
-namespace Store
+using Microsoft.EntityFrameworkCore;
+using StoreAPI.Data;
+
+namespace StoreAPI
 {
     public class Program
     {
@@ -6,7 +9,13 @@ namespace Store
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            var configuration = builder.Configuration;
+
+            builder.Services.AddDbContext<StoreContext>(options =>options.UseInMemoryDatabase("StoreDb"));
+
             // Add services to the container.
+
+            builder.Services.AddControllersWithViews();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

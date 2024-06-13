@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace StoreASP
 {
     public class Program
@@ -5,6 +7,7 @@ namespace StoreASP
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
